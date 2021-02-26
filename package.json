@@ -1,7 +1,7 @@
 {
   "name": "alfred-scrapbox-search",
   "version": "1.0.0",
-  "description": "",
+  "description": "Alfred Workflow to search for your own Scrapbox posts.",
   "main": "index.js",
   "scripts": {
 		"postinstall": "alfy-init",
@@ -11,8 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/moyoyomiyazawa/alfred-scrapbox-search.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "moyoyomiyazawa <moyoyomiyazawa@gmail.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/moyoyomiyazawa/alfred-scrapbox-search/issues"
   },
