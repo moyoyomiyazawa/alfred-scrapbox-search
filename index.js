@@ -37,7 +37,7 @@ const createItem = (title, subtitle, url) => {
     const items = alfy.inputMatches(posts.pages, 'title').map(p => createItem(p.title, p.descriptions[0], `https://scrapbox.io/${projectName}/${p.title}`));
     if (!items.length) {
       alfy.output(
-          [createItem("The requested post was not found. ⚠️", "", "")]);
+          [createItem('The requested post was not found.', 'Do a full-text search on the Scrapbox.', `https://scrapbox.io/${projectName}/search/page?q=${alfy.input}`)]);
       return;
     }
 
