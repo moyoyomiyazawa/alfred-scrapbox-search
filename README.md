@@ -13,7 +13,7 @@ $ npm install --global alfred-scrapbox-search
 ```
 
 #### Manually
-[download the workflow directly]().
+[download the workflow directly.](https://github.com/moyoyomiyazawa/alfred-scrapbox-search/releases)
 
 ## Setup
 Set env to your Scrapbox params.
