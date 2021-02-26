@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>alfred-scrapbox</string>
+	<string>alfred-scrapbox-search</string>
 	<key>category</key>
 	<string>Tools</string>
 	<key>connections</key>
@@ -25,11 +25,11 @@
 	<key>createdby</key>
 	<string>moyoyomiyazawa</string>
 	<key>description</key>
-	<string>Alfred's script filter object is extremely powerful, and gives you control over the results displayed in Alfred</string>
+	<string>Alfred Workflow to search for your own Scrapbox posts.</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>alfred-scrapbox</string>
+	<string>alfred-scrapbox-search</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -48,7 +48,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>.sb</string>
+				<string>s</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -139,6 +139,6 @@ A new option now exists for Script Filters, "Alfred filters results". This allow
 	<key>version</key>
 	<string>1.0</string>
 	<key>webaddress</key>
-	<string>https://www.alfredapp.com</string>
+	<string>https://github.com/moyoyomiyazawa/alfred-scrapbox-search</string>
 </dict>
 </plist>
