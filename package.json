@@ -1,0 +1,23 @@
+{
+  "name": "alfred-scrapbox-search",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+		"postinstall": "alfy-init",
+		"preuninstall": "alfy-cleanup"
+	},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moyoyomiyazawa/alfred-scrapbox-search.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moyoyomiyazawa/alfred-scrapbox-search/issues"
+  },
+  "homepage": "https://github.com/moyoyomiyazawa/alfred-scrapbox-search#readme",
+  "dependencies": {
+    "alfy": "^0.10.0"
+  }
+}
