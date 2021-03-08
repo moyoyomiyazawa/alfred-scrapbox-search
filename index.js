@@ -40,17 +40,26 @@ const createItem = (title, subtitle, url) => {
     options
   );
 
-  if (alfy.input.length > 1) {
-    const items = alfy
-      .inputMatches(posts.pages, 'title')
-      .map((p) =>
+  const items = posts.pages.map(p =>
         createItem(
           p.title,
           p.descriptions[0],
           `https://scrapbox.io/${projectName}/${p.title}`
         )
       );
-    if (!items.length) {
+
+  if (alfy.input.length > 1) {
+    // ランダム表示
+    if (alfy.input === '--r') {
+      const randomItem = items[Math.floor(Math.random() * items.length)];
+      alfy.output([randomItem]);
+      return;
+    }
+
+    // インクリメンタル検索
+    const matchedItems = alfy.inputMatches(items, 'title');
+    // 一致したページがなければScrapbox内で全文検索及び新規ページ作成へ飛ばす
+    if (!matchedItems.length) {
       alfy.output([
         createItem(
           'The requested post was not found.',
@@ -60,8 +69,7 @@ const createItem = (title, subtitle, url) => {
       ]);
       return;
     }
-
-    alfy.output(items);
+    alfy.output(matchedItems);
   } else {
     alfy.output([createItem('Loading...', '', '')]);
   }
