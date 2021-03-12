@@ -1,6 +1,6 @@
 # alfred-scrapbox-search
 
-Alfred Workflow to search for your own Scrapbox posts.
+Alfred Workflow to search for your own Scrapbox pages.
 
 ## Install
 Requires the Alfred 3 or 4 [Powerpack](https://www.alfredapp.com/powerpack/), [Node.js](https://nodejs.org) 8+.
