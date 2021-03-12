@@ -1,4 +1,5 @@
 const alfy = require('alfy');
+const shuffle = require('shuffle-array');
 
 const projectName = process.env.PROJECT_NAME;
 const sid = process.env.SID;
@@ -40,17 +41,36 @@ const createItem = (title, subtitle, url) => {
     options
   );
 
-  if (alfy.input.length > 1) {
-    const items = alfy
-      .inputMatches(response.pages, 'title')
-      .map((p) =>
+  // Alfredの表示形式に整形
+  const items = response.pages.map(p =>
         createItem(
           p.title,
           p.descriptions[0],
           `https://scrapbox.io/${projectName}/${p.title}`
         )
       );
-    if (!items.length) {
+
+  if (alfy.input.length > 1) {
+    // ランダム表示
+    // `--r`のあとに数値を入力すると、その数の分、ランダムな記事を取得して表示する
+    if (/^--r/.test(alfy.input)) {
+      const result = alfy.input.match(/^--r (\d*)/);
+      // 取得件数が未指定なら1件表示
+      if (!result) {
+        const randomItem = shuffle.pick(items);
+        alfy.output([randomItem]);
+        return;
+      }
+      // 取得件数の指定があれば、指定数分の要素を取得
+      const randomItems = shuffle.pick(items, { 'picks': Number(result[1]) });
+      alfy.output(randomItems);
+      return;
+    }
+
+    // インクリメンタル検索
+    const matchedItems = alfy.inputMatches(items, 'title');
+    // 一致したページがなければScrapbox内で全文検索及び新規ページ作成へ飛ばす
+    if (!matchedItems.length) {
       alfy.output([
         createItem(
           'The requested post was not found.',
@@ -60,8 +80,7 @@ const createItem = (title, subtitle, url) => {
       ]);
       return;
     }
-
-    alfy.output(items);
+    alfy.output(matchedItems);
   } else {
     alfy.output([createItem('Loading...', '', '')]);
   }
