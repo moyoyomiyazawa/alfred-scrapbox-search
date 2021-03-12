@@ -35,14 +35,14 @@ const createItem = (title, subtitle, url) => {
     return;
   }
 
-  const posts = await alfy.fetch(
+  const response = await alfy.fetch(
     `https://scrapbox.io/api/pages/${projectName}?limit=1000`,
     options
   );
 
   if (alfy.input.length > 1) {
     const items = alfy
-      .inputMatches(posts.pages, 'title')
+      .inputMatches(response.pages, 'title')
       .map((p) =>
         createItem(
           p.title,
